@@ -1,0 +1,7 @@
+image_width: 92
+image_height: 112
+min_dimension: 40
+max_dimension: 100
+train_file_path: ../config/test.txt
+test_file_path: test
+save_data_path: ../save
