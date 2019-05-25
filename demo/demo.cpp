@@ -6,6 +6,6 @@ int main()
 {
     auto pca = new n_pca::NPca();
     pca->init("../config/config.txt");
-    pca->train();
+    pca->process();
     return 0;
 }

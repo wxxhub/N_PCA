@@ -21,12 +21,24 @@ void NPca::init(const string config_path)
     n_config_->init(config_path);
 }
 
-void NPca::train()
+void NPca::process()
 {
     setTrainMatrix(n_config_->train_file_path_);
     setTestMatrix(n_config_->test_file_path_);
 
-    cout<<train_matrix_<<endl;
+    train_mean_ = train_matrix_.colwise().mean();
+
+    RowVectorXf meanVecRow(RowVectorXf::Map(train_mean_.data(),train_matrix_.cols()));
+
+    MatrixXf zero_matrix = train_matrix_;
+    zero_matrix.rowwise() -= meanVecRow;
+
+    // calculate covariance
+    MatrixXf C = zero_matrix * zero_matrix.transpose();
+    SelfAdjointEigenSolver<MatrixXf> eigenSolver(C);
+
+    // reduce dimension
+    MatrixXf V = eigenSolver.eigenvectors().rightCols(n_config_->min_dimension_);
 }
 
 void NPca::readData(const string data_path)
@@ -66,18 +78,16 @@ void NPca::setTrainMatrix(const string train_config_path)
 
         if (read_data.size() < 2)
             continue;
-        
         Mat image;
         try{
             image = imread(read_data[0].c_str(), CV_LOAD_IMAGE_ANYDEPTH);
-            
             if (image.empty())
                 continue;
-
         } catch (Exception e) {
             continue;
         }
 
+        // resize
         if (image.cols != n_config_->image_width_ || image.rows != n_config_->image_height_)
         {
 
@@ -87,7 +97,6 @@ void NPca::setTrainMatrix(const string train_config_path)
         image_data_.push_back(reshap_image.data);
         train_lab_.push_back(atoi(read_data[1].c_str()));
     }
-    
     // set train_matrix
     train_matrix_ = MatrixXf::Zero(image_data_.size(), size);
 
@@ -139,6 +148,7 @@ void NPca::setTestMatrix(const string test_config_path)
             continue;
         }
 
+        // resize
         if (image.cols != n_config_->image_width_ || image.rows != n_config_->image_height_)
         {
             

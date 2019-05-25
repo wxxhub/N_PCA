@@ -24,7 +24,7 @@ public:
     ~NPca();
 
     void init(const std::string config_path);
-    void train();
+    void process();
 
     // read available data
     void readData(const std::string data_path);
