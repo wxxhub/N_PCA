@@ -25,6 +25,7 @@ public:
 
     void init(const std::string config_path);
     void process();
+    void test();
 
     // read available data
     void readData(const std::string data_path);
@@ -38,12 +39,12 @@ private:
     std::vector<int> train_lab_;
     std::vector<int> test_lab_;
     
-    Eigen::MatrixXf train_matrix_;
-    Eigen::MatrixXf test_matrix_;
+    Eigen::MatrixXd train_matrix_;
+    Eigen::MatrixXd test_matrix_;
 
-    Eigen::MatrixXf train_mean_;
-    Eigen::MatrixXf train_result_;
-    Eigen::MatrixXf pc_matrix_;
+    Eigen::MatrixXd train_mean_;
+    Eigen::MatrixXd train_data_matrix_;
+    Eigen::MatrixXd basic_matrix_;
 
     // set config file
     void setTrainMatrix(const std::string train_config_path);
