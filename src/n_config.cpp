@@ -59,17 +59,9 @@ void NConfig::init(const string config_path)
         {
           image_height_ = std::atoi(tokens[1].c_str());
         }
-        else if (tokens[0] == "min_dimension")
+        else if (tokens[0] == "dimension")
         {
-          min_dimension_ = std::atoi(tokens[1].c_str());
-        }
-        else if (tokens[0] == "max_dimension")
-        {
-          max_dimension_ = std::atoi(tokens[1].c_str());
-        }
-        else if (tokens[0] == "min_dimension")
-        {
-          min_dimension_ = std::atoi(tokens[1].c_str());
+          dimension_ = std::atoi(tokens[1].c_str());
         }
         else if (tokens[0] == "train_file_path")
         {

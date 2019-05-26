@@ -26,8 +26,7 @@ public:
     int image_width_;
     int image_height_;
 
-    int min_dimension_;
-    int max_dimension_;
+    int dimension_;
 
     std::string train_file_path_;
     std::string test_file_path_;

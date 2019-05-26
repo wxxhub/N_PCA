@@ -22,3 +22,8 @@ add_executable(demo demo/demo.cpp)
 target_link_libraries(demo
     ${PROJECT_NAME}
 )
+
+add_executable(detector_demo demo/detector_demo.cpp)
+target_link_libraries(detector_demo
+    ${PROJECT_NAME}
+)

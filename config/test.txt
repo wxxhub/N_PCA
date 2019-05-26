@@ -1,4 +1,4 @@
-/home/wxx/data/orl_faces/s1/9.pgm 0
+/home/wxx/data/orl_faces/s1/9.pgm 5555
 /home/wxx/data/orl_faces/s10/9.pgm 1
 /home/wxx/data/orl_faces/s11/9.pgm 2
 /home/wxx/data/orl_faces/s12/9.pgm 3
