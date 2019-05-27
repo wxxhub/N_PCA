@@ -46,7 +46,7 @@ void process()                           # 对数据进行处理
 
 void readData(const std::string data_path) # 读取已经生产的数据, 以便进行识别
 
-# 三种识别API, 可以使用路径, Mat, 和u_char*  
+# 三种识别API, 可以使用路径, Mat, 和u_char*, 返回值为标签  
 int detector(u_char* image_data);
 int detector(cv::Mat image);
 int detector(const std::string image_path);
