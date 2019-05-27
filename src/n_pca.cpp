@@ -109,7 +109,7 @@ void NPca::readData(const string data_path)
         return;
     }
 
-    ifstream file(data_path);
+    ifstream file(data_path.c_str());
 
     if (!file.is_open())
     {
@@ -294,7 +294,7 @@ void NPca::setTrainMatrix(const string train_config_path)
         return;
     }
 
-    ifstream file(train_config_path);
+    ifstream file(train_config_path.c_str());
 
     if (!file.is_open())
     {
@@ -351,7 +351,7 @@ void NPca::setTestMatrix(const string test_config_path)
         return;
     }
 
-    ifstream file(test_config_path);
+    ifstream file(test_config_path.c_str());
 
     if (!file.is_open())
     {
@@ -427,7 +427,6 @@ void NPca::saveData()
     file<<"image_width: "<<n_config_->image_width_<<endl;
     file<<"image_height: "<<n_config_->image_height_<<endl;
     file<<"train_mean: "<<train_mean_<<endl;
-    printf("train_mean_.size: %d\n", train_mean_.size());
 
     file<<"train_label: ";
     for (int i = 0; i < train_label_.size(); i++)
@@ -459,7 +458,7 @@ map<int, string> NPca::getLabelMap(const string label_path)
         return label_map;
     }
 
-    ifstream file(label_path);
+    ifstream file(label_path.c_str());
 
     if (!file.is_open())
     {
