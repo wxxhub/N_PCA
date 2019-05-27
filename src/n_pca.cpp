@@ -167,7 +167,7 @@ void NPca::readData(const string data_path)
         else if (tokens[0] == "train_data_matrix")
         {
             vector<string> row = n_config_->n_split(tokens[1].c_str(), ',');
-            vector<vector<double>> train_data_vector;
+            vector<vector<double> > train_data_vector;
             for (int i = 0; i < row.size(); i++)
             {
                 vector<double> values_vector;
@@ -197,7 +197,7 @@ void NPca::readData(const string data_path)
         else if (tokens[0] == "basic_matrix")
         {
             vector<string> row = n_config_->n_split(tokens[1].c_str(), ',');
-            vector<vector<double>> basic_vector;
+            vector<vector<double> > basic_vector;
             for (int i = 0; i < row.size(); i++)
             {
                 vector<double> values_vector;
@@ -414,7 +414,7 @@ void NPca::saveData()
         return;
     }
 
-    ofstream file(n_config_->save_data_path_);
+    ofstream file(n_config_->save_data_path_.c_str());
     
     if (!file.is_open())
     {
