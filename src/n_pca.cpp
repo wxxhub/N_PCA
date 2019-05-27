@@ -445,7 +445,7 @@ void NPca::saveData()
 
     file.close();
 
-    printf("save data in %s\n", n_config_->save_data_path_.c_str());
+    printf("save data to %s\n", n_config_->save_data_path_.c_str());
 }
 
 map<int, string> NPca::getLabelMap(const string label_path)
