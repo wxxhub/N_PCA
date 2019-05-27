@@ -9,5 +9,8 @@ int main()
     pca->process();
     printf("process finished\n");
     pca->test();
+
+    int result = pca->detector("../image/orl_faces/s10/1.pgm");
+    printf("%d\n", result);
     return 0;
 }
