@@ -11,6 +11,7 @@ int main()
     pca->test();
 
     int result = pca->detector("../image/orl_faces/s10/1.pgm");
-    printf("%d\n", result);
+    auto label_map = pca->getLabelMap("../config/label.txt");
+    printf("%d, %s\n", result, label_map[result].c_str());
     return 0;
 }

@@ -39,6 +39,7 @@ public:
 
     std::map<int, std::string> getLabelMap(const std::string label_path);
 
+    // tool function
     void n_resize(cv::Mat &image);
 
 private:
