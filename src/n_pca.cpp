@@ -91,6 +91,11 @@ void NPca::test()
         {
             match_times++;
         }
+        else
+        {
+            printf("detector faile test index: %d\n", i);
+        }
+        
     }
 
     printf("train size: %d, test_size: %d, match_success: %d, recognition rate: %f\n", train_matrix_.rows(), test_matrix_.rows(), match_times, 1.0 * match_times / test_matrix_.rows());

@@ -10,7 +10,7 @@ int main()
     printf("process finished\n");
     pca->test();
 
-    int result = pca->detector("../image/orl_faces/s10/1.pgm");
+    int result = pca->detector("../image/orl_faces/s28/3.pgm");
     auto label_map = pca->getLabelMap("../config/label.txt");
     printf("%d, %s\n", result, label_map[result].c_str());
     return 0;

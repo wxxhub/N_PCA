@@ -14,7 +14,7 @@ train_file="train.txt"
 test_file="test.txt"
 train_num=$2
 
-if [ $# = 2 ];then
+if [ $# = 1 ];then
     # rm old file
     if [ -f $label_file ];then
         rm $label_file
@@ -35,15 +35,17 @@ if [ $# = 2 ];then
             if [ -d $file ];then
                 count=`ls $file | wc -w`
                 if [ $count -gt 2 ];then
+                    num=$(random 0 $count)
+                    image_num=0
                     for image in `ls $file`;do
-                        num=$(random 0 $train_num)
-                        if [ $num = 0 ];then
+                        if [ $num = $image_num ];then
                             echo $basedir"/"$1"/"$file"/"$image $label>> $basedir"/"$test_file
                             echo "test: "$basedir"/"$1"/"$file"/"$image $label
                         else
                             echo $basedir"/"$1"/"$file"/"$image $label>> $basedir"/"$train_file
                             echo "train: "$basedir"/"$1"/"$file"/"$image $label
                         fi
+                        image_num=`expr $image_num + 1`
                         done
                     echo $label ':' $file >> $basedir"/"$label_file
                     label=`expr $label + 1`
@@ -51,5 +53,5 @@ if [ $# = 2 ];then
             fi
         done
 else
-    echo "./create_dataset.sh path train_num"
+    echo "please use command: ./create_dataset.sh set_path"
 fi
