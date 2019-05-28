@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 project(n_pca)
 
+add_compile_options(-std=c++11)
+
 find_package(OpenCV REQUIRED)
 find_package(Eigen3 REQUIRED) 
 

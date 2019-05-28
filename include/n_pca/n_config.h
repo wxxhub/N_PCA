@@ -9,7 +9,7 @@
 #ifndef _N_CONFIG_H_
 #define _N_CONFIG_H_
 
-#include <iostream>
+#include <string>
 
 namespace n_pca
 {
@@ -32,8 +32,6 @@ public:
     std::string test_file_path_;
     std::string save_data_path_;
 
-private:
-    void split();
 };
 
 }

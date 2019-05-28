@@ -6,6 +6,14 @@
 ## 开发环境 Environment  
 Ubantu18.04  
 
+## 依赖
+```txt
+OpenCV
+
+#Eigen3
+sudo apt-get install libeigen3-dev
+```
+
 ## 使用   
 **使用前请确保已配置好OpenCV**   
 ```shell  
