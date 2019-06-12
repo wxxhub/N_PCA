@@ -2,7 +2,7 @@
  * n_config.h
  *
  *  Created on: 2019. 5. 24.
- *      Author: zerom
+ *      Author: wxx
  *      E-mail: wxx0520@foxmail.com
  */
 
